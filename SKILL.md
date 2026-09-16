@@ -30,15 +30,21 @@ assumptions.
 - Calculate exact counts and capacity when they materially explain the system.
   For Kubernetes, include replicas when totaling pods and resource requests or
   limits.
-- Compare three states explicitly: **declared** in deployable configuration,
-  **intended** in comments or design docs, and **observed** at runtime. Never show
-  intended behavior as deployed. If runtime inspection is unavailable, say so.
+- Compare evidence states explicitly: **declared** in deployable configuration,
+  **intended** in comments or design docs, **recorded** in historical runtime
+  artifacts, and **observed** through live inspection during the current analysis.
+  Never show intended behavior as deployed. If live runtime inspection is
+  unavailable, say so.
+- Treat committed logs, screenshots, status exports, and prior command output as
+  recorded evidence; show their observation time and qualify their freshness. A
+  repository artifact cannot by itself establish current runtime state.
 - Check adjacent code only to confirm an architectural edge or missing runtime
   role; do not expand into an unrelated full-repository review.
 
 Keep an internal evidence map from every important visual claim to a file and
-line or parsed resource. Show citations only when the user requests them or when
-the claim would otherwise be hard to verify.
+line or parsed resource. Record whether each claim is declared, intended,
+recorded, observed, or unverified. Show citations only when the user requests
+them or when the claim would otherwise be hard to verify.
 
 ## Archify the system
 
@@ -139,5 +145,10 @@ Before responding:
   low contrast, duplicate IDs, and unsupported external resources;
 - validate standalone SVG as XML and keep it free of external runtime dependencies;
 - apply any size or wrapper limits required by the current host's artifact surface;
+- require live runtime evidence gathered during the current analysis for every
+  `observed` claim; otherwise downgrade it to `recorded`, `declared`, `intended`,
+  or `unverified` as appropriate;
+- confirm that every `recorded` claim shows its observation time and does not
+  imply current runtime state;
 - re-check the top findings against source evidence;
 - include the visualization or a link to the generated SVG in the same turn.
