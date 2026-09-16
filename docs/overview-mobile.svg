@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1776" width="360" height="1776" role="img" aria-labelledby="overview-title overview-desc">
+  <title id="overview-title">explain_me — 궁금한 주제를 이해되는 설명으로</title>
+  <desc id="overview-desc">질문과 자료에서 출발해 독자와 목적을 파악하고 근거를 확인합니다. 개념은 관계도, 사건은 시간선, 비교는 공통 기준, 절차는 단계도, 문서는 주장과 근거, 시스템은 구조도로 설명합니다. 사실·해석·가정·불확실성을 구분하고 핵심 SVG와 필요한 세부 설명을 제공합니다.</desc>
+  <style>
+:root { color-scheme: light dark; --bg:#f8fafc; --surface:#ffffff; --ink:#162b3c; --muted:#465f72; --line:#b1c2cf; --accent:#096b70; --soft:#e0f2ef; --warm:#8e4b14; }
+@media (prefers-color-scheme:dark) { :root { --bg:#111f2a; --surface:#192d3b; --ink:#eef5fa; --muted:#beced9; --line:#607b8d; --accent:#73d9cf; --soft:#203f43; --warm:#f3c08e; } }
+text { font-family:'Segoe UI','Malgun Gothic',Arial,sans-serif; fill:var(--ink); font-size:18px; }
+.muted { fill:var(--muted); } .accent { fill:var(--accent); } .bold { font-weight:600; }
+.brand { font-size:38px; font-weight:700; } .hero { font-size:32px; font-weight:600; }
+.section { font-size:22px; font-weight:600; } .small { font-size:18px; }
+.node { fill:var(--surface); stroke:var(--line); } .edge { fill:none; stroke:var(--accent); stroke-width:2; }
+.brand{font-size:30px}.hero{font-size:25px}.section{font-size:19px}text,.small{font-size:14px}</style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L8 4 L0 8 Z" fill="var(--accent)" />
+    </marker>
+  </defs>
+  <rect width="360" height="1776" rx="20" fill="var(--bg)" />
+  <text x="22" y="49" class="brand">
+    <tspan x="22" dy="0">explain_me</tspan>
+  </text>
+  <text x="22" y="91" class="hero">
+    <tspan x="22" dy="0">궁금한 주제를,</tspan>
+    <tspan x="22" dy="34">이해되는 설명으로.</tspan>
+  </text>
+  <text x="22" y="160" class="muted">
+    <tspan x="22" dy="0">개념부터 사건, 문서, 시스템까지.</tspan>
+    <tspan x="22" dy="22">근거를 바탕으로 쉽게 설명합니다.</tspan>
+  </text>
+  <rect x="22" y="209" width="316" height="106" rx="12" fill="var(--soft)" stroke="none" />
+  <text x="38" y="238" class="bold accent">
+    <tspan x="38" dy="0">시작점</tspan>
+  </text>
+  <text x="38" y="266" class="">
+    <tspan x="38" dy="0">질문 · 링크 · 문서 · 이미지</tspan>
+    <tspan x="38" dy="23">데이터 · 저장소</tspan>
+  </text>
+  <text x="22" y="357" class="section">
+    <tspan x="22" dy="0">01  설명할 준비</tspan>
+  </text>
+  <circle cx="29" cy="386" r="4" fill="var(--accent)" />
+  <text x="44" y="391" class="bold accent">
+    <tspan x="44" dy="0">독자와 목적</tspan>
+  </text>
+  <text x="146" y="391" class="muted">
+    <tspan x="146" dy="0">누구에게, 어디까지?</tspan>
+  </text>
+  <line x1="29" y1="396" x2="29" y2="423" class="edge" marker-end="url(#arrow)" />
+  <circle cx="29" cy="439" r="4" fill="var(--accent)" />
+  <text x="44" y="444" class="bold accent">
+    <tspan x="44" dy="0">근거 확인</tspan>
+  </text>
+  <text x="146" y="444" class="muted">
+    <tspan x="146" dy="0">출처·시점·불확실성</tspan>
+  </text>
+  <line x1="29" y1="449" x2="29" y2="476" class="edge" marker-end="url(#arrow)" />
+  <circle cx="29" cy="492" r="4" fill="var(--accent)" />
+  <text x="44" y="497" class="bold accent">
+    <tspan x="44" dy="0">구조 선택</tspan>
+  </text>
+  <text x="146" y="497" class="muted">
+    <tspan x="146" dy="0">주제에 맞는 그림</tspan>
+  </text>
+  <text x="22" y="550" class="section">
+    <tspan x="22" dy="0">02  주제마다 다른 설명 구조</tspan>
+  </text>
+  <rect x="22" y="575" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="604" class="bold">
+    <tspan x="38" dy="0">개념 · 원리</tspan>
+  </text>
+  <text x="38" y="636" class="muted">
+    <tspan x="38" dy="0">정의 → 관계 → 예시와 한계</tspan>
+  </text>
+  <line x1="215" y1="604" x2="258" y2="591" class="edge" />
+  <line x1="215" y1="604" x2="258" y2="617" class="edge" />
+  <circle cx="215" cy="604" r="5" fill="var(--accent)" />
+  <circle cx="258" cy="591" r="5" fill="var(--accent)" />
+  <circle cx="258" cy="617" r="5" fill="var(--accent)" />
+  <rect x="22" y="674" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="703" class="bold">
+    <tspan x="38" dy="0">사건 · 역사</tspan>
+  </text>
+  <text x="38" y="735" class="muted">
+    <tspan x="38" dy="0">배경 → 전개 → 결과</tspan>
+  </text>
+  <line x1="215" y1="703" x2="325" y2="703" class="edge" />
+  <circle cx="215" cy="703" r="5" fill="var(--accent)" />
+  <line x1="215" y1="694" x2="215" y2="712" class="edge" />
+  <circle cx="250" cy="703" r="5" fill="var(--accent)" />
+  <line x1="250" y1="694" x2="250" y2="712" class="edge" />
+  <circle cx="285" cy="703" r="5" fill="var(--accent)" />
+  <line x1="285" y1="694" x2="285" y2="712" class="edge" />
+  <circle cx="320" cy="703" r="5" fill="var(--accent)" />
+  <line x1="320" y1="694" x2="320" y2="712" class="edge" />
+  <rect x="22" y="773" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="802" class="bold">
+    <tspan x="38" dy="0">비교 · 선택</tspan>
+  </text>
+  <text x="38" y="834" class="muted">
+    <tspan x="38" dy="0">같은 기준 → 차이와 조건</tspan>
+  </text>
+  <rect x="215" y="787" width="54" height="9" rx="2" fill="var(--accent)" />
+  <rect x="215" y="808" width="86" height="9" rx="2" fill="var(--accent)" />
+  <rect x="22" y="872" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="901" class="bold">
+    <tspan x="38" dy="0">절차 · 과정</tspan>
+  </text>
+  <text x="38" y="933" class="muted">
+    <tspan x="38" dy="0">입력 → 단계와 분기 → 결과</tspan>
+  </text>
+  <rect x="215" y="890" width="24" height="22" rx="3" fill="var(--soft)" stroke="var(--accent)" />
+  <line x1="240" y1="901" x2="253" y2="901" class="edge" marker-end="url(#arrow)" />
+  <rect x="257" y="890" width="24" height="22" rx="3" fill="var(--soft)" stroke="var(--accent)" />
+  <line x1="282" y1="901" x2="295" y2="901" class="edge" marker-end="url(#arrow)" />
+  <rect x="299" y="890" width="24" height="22" rx="3" fill="var(--soft)" stroke="var(--accent)" />
+  <rect x="22" y="971" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="1000" class="bold">
+    <tspan x="38" dy="0">문서 · 주장</tspan>
+  </text>
+  <text x="38" y="1032" class="muted">
+    <tspan x="38" dy="0">핵심 주장 → 근거와 가정</tspan>
+  </text>
+  <rect x="215" y="985" width="40" height="30" rx="3" fill="var(--soft)" stroke="var(--accent)" />
+  <line x1="256" y1="1000" x2="298" y2="990" class="edge" />
+  <circle cx="298" cy="990" r="5" fill="var(--accent)" />
+  <line x1="256" y1="1000" x2="298" y2="1010" class="edge" />
+  <circle cx="298" cy="1010" r="5" fill="var(--accent)" />
+  <rect x="22" y="1070" width="316" height="86" rx="12" fill="var(--surface)" stroke="var(--line)" />
+  <text x="38" y="1099" class="bold">
+    <tspan x="38" dy="0">저장소 · 시스템</tspan>
+  </text>
+  <text x="38" y="1131" class="muted">
+    <tspan x="38" dy="0">구성 → 흐름 → 책임과 운영</tspan>
+  </text>
+  <line x1="215" y1="1099" x2="258" y2="1086" class="edge" />
+  <line x1="215" y1="1099" x2="258" y2="1112" class="edge" />
+  <line x1="258" y1="1086" x2="301" y2="1099" class="edge" />
+  <line x1="258" y1="1112" x2="301" y2="1099" class="edge" />
+  <circle cx="215" cy="1099" r="5" fill="var(--accent)" />
+  <circle cx="258" cy="1086" r="5" fill="var(--accent)" />
+  <circle cx="258" cy="1112" r="5" fill="var(--accent)" />
+  <circle cx="301" cy="1099" r="5" fill="var(--accent)" />
+  <text x="22" y="1200" class="section">
+    <tspan x="22" dy="0">03  근거를 구분합니다</tspan>
+  </text>
+  <text x="22" y="1235" class="bold accent">
+    <tspan x="22" dy="0">사실</tspan>
+  </text>
+  <text x="121" y="1235" class="muted">
+    <tspan x="121" dy="0">뒷받침되는 내용</tspan>
+  </text>
+  <text x="22" y="1265" class="bold accent">
+    <tspan x="22" dy="0">해석</tspan>
+  </text>
+  <text x="121" y="1265" class="muted">
+    <tspan x="121" dy="0">근거에 대한 설명</tspan>
+  </text>
+  <text x="22" y="1295" class="bold accent">
+    <tspan x="22" dy="0">가정</tspan>
+  </text>
+  <text x="121" y="1295" class="muted">
+    <tspan x="121" dy="0">설명을 위한 전제</tspan>
+  </text>
+  <text x="22" y="1325" class="bold accent">
+    <tspan x="22" dy="0">불확실성</tspan>
+  </text>
+  <text x="121" y="1325" class="muted">
+    <tspan x="121" dy="0">아직 모르는 부분</tspan>
+  </text>
+  <text x="22" y="1376" class="muted">
+    <tspan x="22" dy="0">출처와 시점은 별도로 확인합니다.</tspan>
+    <tspan x="22" dy="23">사건의 순서가 곧 원인은 아닙니다.</tspan>
+  </text>
+  <rect x="22" y="1426" width="316" height="240" rx="12" fill="var(--soft)" stroke="none" />
+  <text x="38" y="1461" class="section">
+    <tspan x="38" dy="0">결과 · 핵심 그림 + 세부 설명</tspan>
+  </text>
+  <text x="38" y="1495" class="">
+    <tspan x="38" dy="0">핵심과 관계를 한눈에</tspan>
+    <tspan x="38" dy="26">예시와 한계를 함께</tspan>
+    <tspan x="38" dy="26">출처는 확인 가능하게</tspan>
+  </text>
+  <text x="38" y="1587" class="muted">
+    <tspan x="38" dy="0">복잡하면 나눠서, 작은 화면은 재배치.</tspan>
+    <tspan x="38" dy="24">미리보기 없이도 독립 SVG 제공.</tspan>
+    <tspan x="38" dy="24">텍스트 요청도 존중합니다.</tspan>
+  </text>
+  <text x="22" y="1703" class="small muted">
+    <tspan x="22" dy="0">공통 지침: SKILL.md</tspan>
+    <tspan x="22" dy="24">저장소 지침은 필요할 때 별도로 읽습니다.</tspan>
+  </text>
+</svg>

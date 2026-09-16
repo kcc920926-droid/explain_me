@@ -1,154 +1,131 @@
 ---
-name: svg-eli5-archify
-description: Analyze a codebase or infrastructure repository and produce an evidence-backed, SVG-first one-page architecture explainer using simple ELI5 analogies and layered system mapping. Use for requests to understand, review, or present a repository or deployed system visually; do not use for generic charts, implementation-only work, or text-only summaries.
+name: explain-me
+description: Explain concepts, events, processes, comparisons, documents, and technical systems with evidence-grounded visual explanations adapted to the reader. Use when the user asks to understand a topic, see how or why it works, follow what happened, or compare alternatives. Prefer a compact SVG overview for substantive explanations; honor requests for text or another format. Do not turn simple factual answers or implementation-only tasks into an explainer.
 ---
 
-# SVG ELI5 Archify
+# explain_me
 
-Turn a repository into one page that answers four questions at a glance:
+Make a subject understandable: what it is, how it works or unfolded, and why it
+matters. Use a compact visual explanation by default, with SVG as the portable
+source. A complex subject may need an overview plus focused detail; do not force
+it onto one unreadable page.
 
-1. What is the system?
-2. How does work and data move through it?
-3. Which decisions are strong, and where can it fail silently?
-4. What should happen next?
+## Frame the explanation
 
-The SVG is the explanation, not decoration. Put the architecture, evidence state,
-findings, and next actions inside the visual. Keep prose outside the visual to at
-most one short conclusion.
+- Follow the user's language, audience, purpose, and requested format. Without
+  an audience cue, assume an interested adult with little background knowledge.
+- Use the supplied question, text, document, link, image, data, or repository as
+  the starting point. Do not require a repository for a non-code topic.
+- Identify the central question and the smallest scope that answers it. Ask only
+  when ambiguity would materially change the explanation; otherwise state a
+  brief working assumption and proceed.
+- Define essential terms where they first become useful. Use a concrete example
+  when it explains more than another abstract definition.
 
-## Evidence first
+## Choose a structure that fits
 
-Inspect the repository before drawing. Prefer local source and configuration over
-assumptions.
+Use these as starting points, not compulsory sections. Combine structures only
+when the question needs them.
 
-- Read applicable repository instructions and the top-level documentation.
-- Inventory deployable units, services, jobs, data stores, queues, caches,
-  observability resources, external dependencies, and exposure paths.
-- Trace dependencies from configuration, environment variables, ports, mounts,
-  selectors, imports, and entry commands. Check the application entrypoint before
-  treating a script as a running service.
-- Calculate exact counts and capacity when they materially explain the system.
-  For Kubernetes, include replicas when totaling pods and resource requests or
-  limits.
-- Compare evidence states explicitly: **declared** in deployable configuration,
-  **intended** in comments or design docs, **recorded** in historical runtime
-  artifacts, and **observed** through live inspection during the current analysis.
-  Never show intended behavior as deployed. If live runtime inspection is
-  unavailable, say so.
-- Treat committed logs, screenshots, status exports, and prior command output as
-  recorded evidence; show their observation time and qualify their freshness. A
-  repository artifact cannot by itself establish current runtime state.
-- Check adjacent code only to confirm an architectural edge or missing runtime
-  role; do not expand into an unrelated full-repository review.
+| Subject or question | Useful structure | Guard against |
+| --- | --- | --- |
+| Concept or mechanism | Definition, parts, relationships, worked example, limits | An analogy replacing the actual mechanism |
+| Event or history | Context, dated sequence, participants, outcomes, unresolved questions | Treating sequence as proof of causation |
+| Comparison or decision | Shared criteria, side-by-side differences, tradeoffs, conditions | A universal winner when goals differ |
+| Process or procedure | Inputs, steps, branches, outputs, failure points | Omitting prerequisites or consequential branches |
+| Document or argument | Main claim, supporting reasons, evidence, assumptions, implications | Presenting the author's claim as established fact |
+| System or repository | Boundary, components, flows, ownership, operations, constraints | Showing intended architecture as deployed |
 
-Keep an internal evidence map from every important visual claim to a file and
-line or parsed resource. Record whether each claim is declared, intended,
-recorded, observed, or unverified. Show citations only when the user requests
-them or when the claim would otherwise be hard to verify.
+For codebases or deployed infrastructure, read
+[references/repository-analysis.md](references/repository-analysis.md). Load it
+only for that mode; its runtime categories are not a template for every topic.
 
-## Archify the system
+## Establish evidence before drawing
 
-Organize the page in layers rather than listing files:
+Keep a lightweight internal mapping from important claims to their supporting
+passage, file and line, dataset, calculation, or observation. Separate two things:
 
-- **Context:** users, external systems, the current public path, and the system
-  boundary.
-- **Workloads:** APIs, workers, scheduled jobs, consumers, replicas, and role
-  boundaries.
-- **Flow:** request direction, work assignment, event transport, replay, and
-  fan-out.
-- **Data responsibility:** distinguish source of truth, durable operational
-  state, transport, cache, and rebuildable derived views.
-- **Operations:** metrics, dashboards, alerts, SLOs, scaling constraints, and
-  failure containment.
+- **Claim status:** supported fact, attributed interpretation, explicit assumption,
+  or unresolved/uncertain claim. An illustrative scenario is not factual evidence.
+- **Provenance and time:** who or what supports the claim, the relevant version or
+  period, and when an event or observation occurred. Source type alone does not
+  establish truth; a document may support the fact that someone made a claim.
 
-Use solid connectors for declared relationships. Use clearly labeled dashed
-connectors or nodes for intended-but-undeclared behavior. Show transitional
-coupling such as local paths, manual bootstrapping, or an old production route
-instead of hiding it.
+Use supplied material directly when explaining its contents. When establishing
+real-world truth, prefer primary sources and corroborate consequential disputed
+claims. Verify changing or recent information when currentness matters, and keep
+event dates separate from publication dates. If sources or live access are
+unavailable, explain the bounded material available and name what is unverified.
+Do not imply that a search, experiment, or runtime inspection occurred when it did
+not. A repository file or saved screenshot cannot establish current runtime state.
 
-## Explain like five without becoming inaccurate
+Show citations near contested, numerical, time-sensitive, quoted, or otherwise
+hard-to-check claims, and whenever requested. Prefer a few readable source notes
+or linked references to an evidence index covering every label. Do not invent
+citations, observations, dates, or precision. For undated historical artifacts,
+label the observation time unknown; do not substitute a commit or file timestamp.
 
-Use one coherent analogy that preserves system semantics. Good mappings include:
+## Explain without distorting
 
-- source of truth → warehouse or archive;
-- task queue → ticket desk;
-- event log → conveyor belt or shipping ledger;
-- cache → short-lived sticky note;
-- search index → catalog that can be rebuilt;
-- observability → CCTV, gauges, and alarms.
+- Use an analogy only when it helps. Preserve the important relationships and
+  state where the analogy stops working. Avoid childish language unless requested.
+- Distinguish what happened from why it may have happened. Label proposed causal
+  links and attribute competing interpretations in proportion to their evidence.
+- In comparisons, use the same criteria, units, period, and scope for each option.
+  Mark missing data rather than inventing a score or ranking.
+- In quantitative explanations, show assumptions, units, and the calculation
+  that matters. Label made-up examples as illustrative.
+- Make boundaries and uncertainty visible where they change the takeaway. Do not
+  add stock warnings, strengths, risks, or action lists to fill a template.
+- Add practical next steps when the user wants a decision or action. A definition
+  or historical account does not need an improvement plan.
 
-Put the analogy near the title, then use precise technical labels in the diagram.
-Do not force an analogy onto components where it would distort ownership,
-durability, ordering, or failure behavior.
+## Make the visual carry the explanation
 
-## Adapt to the host without weakening the result
+Choose the smallest useful composition: relationship map, timeline, causal
+diagram, aligned comparison, sequence, or chart. Give arrows explicit meaning;
+do not use one unlabelled connector for time, causality, and information flow.
 
-Use the richest visual surface the current host provides, but keep the SVG as the
-portable source of truth.
+- Put the central answer, important relationships, example, and relevant limits
+  inside the visual. Keep surrounding prose brief, with supporting detail or
+  sources when they are needed. Respect a requested text-only answer.
+- Use native SVG shapes, connectors, text, and groups. Reserve most of the space
+  for the actual explanation rather than decorative panels or repeated prose.
+- For time axes, distinguish proportional spacing from a schematic sequence.
+  For charts, label units and avoid visual area or axis choices that distort data.
+- Use labels, shapes, and line styles as well as color. Define any evidence
+  categories or uncertainty marks that are necessary to read the visual.
+- Use readable type (at least 11 screen pixels), explicit text wrapping, clear
+  reading order, a concise SVG `title` and `desc`, and unique IDs.
+- Design for desktop and mobile. Reflow or provide a mobile composition when a
+  fixed viewBox would shrink labels below readable size. Use theme-aware colors;
+  standalone SVGs must include their own light/dark palette.
 
-- If the host provides a visualization, artifact, canvas, or browser-preview
-  capability, read its instructions before creating the visual and use it for the
-  preview.
-- Otherwise create a self-contained `.svg` file in an authorized workspace
-  location. Add a minimal HTML preview only when it helps inspection; do not move
-  substantive explanation into the wrapper.
-- Never make completion depend on a Codex-, Claude-, or Gemini-specific tool. If a
-  native preview is unavailable, return the SVG path and state which visual checks
-  could not be performed.
+## Adapt to the host
 
-## Make the SVG carry the page
+Use an available visualization, artifact, canvas, or preview surface after
+reading its relevant instructions. Preserve a self-contained SVG for portability.
+Add local interaction only when it helps investigate a relationship or scenario.
 
-- Put the title and analogy, architecture map, evidence legend, strengths, risks,
-  and prioritized next moves inside SVG. Outside prose should be no more than a
-  short handoff or conclusion.
-- Use native SVG shapes, connectors, labels, badges, and grouped regions rather
-  than embedding a screenshot or substituting a long Markdown explanation. The
-  architecture flow should be the visually dominant region.
-- When the host supports responsive inline output, compose a desktop view around
-  736px and a separate mobile view around 360px. For standalone output, use a
-  responsive `viewBox`; create a mobile companion SVG when one composition cannot
-  remain readable at both widths.
-- Keep visible text at least 11 screen pixels. Wrap text with explicit `tspan`
-  lines and reserve room for the longest label.
-- Use host theme tokens when available. For standalone output, define a
-  self-contained light/dark palette inside the SVG. Pair color with labels, line
-  styles, and shapes so meaning never depends on color alone.
-- Give each SVG a concise `title` and `desc`. Keep IDs unique across multiple
-  compositions.
-- Prefer direct labels over legends. Use a small legend only for durable semantic
-  categories such as source, transport, cache, derived view, and missing desired
-  state.
-- Do not invent maturity scores. Report concrete evidence, consequences, and
-  next actions.
+If there is no suitable native surface, write a standalone `.svg` in an authorized
+workspace and return its link. A small HTML preview may help inspection, but keep
+the explanation in SVG. Do not make completion depend on a particular vendor's
+tool, external script, font service, or rendering service.
 
-## Findings and prioritization
+For a README, embed repository-relative static SVG assets and keep installation
+commands, links, and a concise accessible text equivalent in Markdown. GitHub
+readers should not need JavaScript or a separate hosted app to understand it.
 
-The one page should normally contain:
+## Verify and deliver
 
-- three to five strengths that explain sound boundaries or operational choices;
-- three to five risks stated as **evidence → consequence**;
-- three ordered next moves that close the most important gaps.
-
-Prioritize missing desired state, data-loss paths, silent monitoring failures,
-external exposure, and reproducibility before cosmetic cleanup. Calibrate the
-assessment to the stated environment: a deliberate single-node home lab is not a
-failed high-availability cluster, but it must still be labeled as single-node.
-
-## Verification
-
-Before responding:
-
-- render the available artifact and inspect it at desktop and mobile widths;
-- inspect both light and dark themes when the renderer supports them; otherwise
-  check both palettes for contrast;
-- fix clipped labels, crossing arrows that change meaning, unreadably small text,
-  low contrast, duplicate IDs, and unsupported external resources;
-- validate standalone SVG as XML and keep it free of external runtime dependencies;
-- apply any size or wrapper limits required by the current host's artifact surface;
-- require live runtime evidence gathered during the current analysis for every
-  `observed` claim; otherwise downgrade it to `recorded`, `declared`, `intended`,
-  or `unverified` as appropriate;
-- confirm that every `recorded` claim shows its observation time and does not
-  imply current runtime state;
-- re-check the top findings against source evidence;
-- include the visualization or a link to the generated SVG in the same turn.
+- Re-check the central answer, chronology, numerical examples, and important
+  relationships against the evidence. Remove unsupported causal implications.
+- Confirm facts, interpretations, assumptions, and uncertainty are distinguishable
+  where relevant; do not label every sentence mechanically.
+- Render and inspect desktop and mobile layouts and both themes where supported.
+  Fix clipping, overlaps, misleading arrows, weak contrast, and unreadable text.
+- Validate standalone SVG as XML and keep it free of external runtime dependencies.
+  If rendering is unavailable, return the artifact and state which checks remain.
+- Deliver the explanation in the same turn, with the visual or its link unless
+  the user requested another format. Give a brief takeaway rather than duplicating
+  the visual in a long prose summary.
