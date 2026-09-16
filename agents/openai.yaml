@@ -1,4 +1,4 @@
 interface:
-  display_name: "SVG ELI5 Archify"
-  short_description: "SVG-first one-page architecture explainers"
-  default_prompt: "Use $svg-eli5-archify to analyze this repository as a one-page SVG architecture explainer."
+  display_name: "explain_me"
+  short_description: "Visual explanations of concepts, events, and systems"
+  default_prompt: "Use $explain-me to explain this topic with a clear visual, evidence, and examples suited to my background."
