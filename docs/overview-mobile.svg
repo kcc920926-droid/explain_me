@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1776" width="360" height="1776" role="img" aria-labelledby="overview-title overview-desc">
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 2076" width="360" height="2076" role="img" aria-labelledby="overview-title overview-desc">
   <title id="overview-title">explain_me — 궁금한 주제를 이해되는 설명으로</title>
-  <desc id="overview-desc">질문과 자료에서 출발해 독자와 목적을 파악하고 근거를 확인합니다. 개념은 관계도, 사건은 시간선, 비교는 공통 기준, 절차는 단계도, 문서는 주장과 근거, 시스템은 구조도로 설명합니다. 사실·해석·가정·불확실성을 구분하고 핵심 SVG와 필요한 세부 설명을 제공합니다.</desc>
+  <desc id="overview-desc">질문과 자료에서 독자·목적·근거를 파악하고 주제에 맞는 설명 구조를 만듭니다. 사실·해석·가정·불확실성을 구분합니다. 호스트 내부 미리보기와 HTML 갤러리 중에서 표시 방식을 고르고, 개수가 고정되지 않은 시안을 비교한 뒤 디자인을 선택합니다. 선택한 구성의 SVG와 필요한 세부 설명을 제공하고 선택을 저장해 이어서 진행합니다.</desc>
   <style>
 :root { color-scheme: light dark; --bg:#f8fafc; --surface:#ffffff; --ink:#162b3c; --muted:#465f72; --line:#b1c2cf; --accent:#096b70; --soft:#e0f2ef; --warm:#8e4b14; }
 @media (prefers-color-scheme:dark) { :root { --bg:#111f2a; --surface:#192d3b; --ink:#eef5fa; --muted:#beced9; --line:#607b8d; --accent:#73d9cf; --soft:#203f43; --warm:#f3c08e; } }
@@ -16,7 +16,7 @@ text { font-family:'Segoe UI','Malgun Gothic',Arial,sans-serif; fill:var(--ink);
       <path d="M0 0 L8 4 L0 8 Z" fill="var(--accent)" />
     </marker>
   </defs>
-  <rect width="360" height="1776" rx="20" fill="var(--bg)" />
+  <rect width="360" height="2076" rx="20" fill="var(--bg)" />
   <text x="22" y="49" class="brand">
     <tspan x="22" dy="0">explain_me</tspan>
   </text>
@@ -172,21 +172,51 @@ text { font-family:'Segoe UI','Malgun Gothic',Arial,sans-serif; fill:var(--ink);
     <tspan x="22" dy="0">출처와 시점은 별도로 확인합니다.</tspan>
     <tspan x="22" dy="23">사건의 순서가 곧 원인은 아닙니다.</tspan>
   </text>
-  <rect x="22" y="1426" width="316" height="240" rx="12" fill="var(--soft)" stroke="none" />
-  <text x="38" y="1461" class="section">
-    <tspan x="38" dy="0">결과 · 핵심 그림 + 세부 설명</tspan>
+  <g aria-label="표시 방식과 디자인 선택">
+    <text x="22" y="1454" class="section">
+      <tspan x="22">04  비교하고 직접 선택</tspan>
+    </text>
+    <rect x="22" y="1478" width="316" height="62" rx="12" class="node" />
+    <circle cx="42" cy="1499" r="6" fill="none" stroke="var(--accent)" stroke-width="2" />
+    <text x="60" y="1504" class="bold accent">
+      <tspan x="60">호스트 내부에서 보기</tspan>
+    </text>
+    <text x="38" y="1528" class="muted">
+      <tspan x="38">이미지·미리보기 + 대화에서 선택</tspan>
+    </text>
+    <rect x="22" y="1550" width="316" height="62" rx="12" class="node" />
+    <circle cx="42" cy="1571" r="6" fill="none" stroke="var(--accent)" stroke-width="2" />
+    <text x="60" y="1576" class="bold accent">
+      <tspan x="60">HTML 갤러리로 보기</tspan>
+    </text>
+    <text x="38" y="1600" class="muted">
+      <tspan x="38">비교 화면·확대 보기 + 선택</tspan>
+    </text>
+    <text x="22" y="1645" class="bold accent">
+      <tspan x="22">시안 비교 → 디자인 선택 → 완성</tspan>
+    </text>
+    <text x="22" y="1677" class="muted">
+      <tspan x="22">시안 수는 유동적 · 선택 저장·재개</tspan>
+    </text>
+    <text x="22" y="1701" class="muted">
+      <tspan x="22">이미 정한 방식은 다시 묻지 않습니다.</tspan>
+    </text>
+  </g>
+  <rect x="22" y="1726" width="316" height="240" rx="12" fill="var(--soft)" stroke="none" />
+  <text x="38" y="1761" class="section">
+    <tspan x="38" dy="0">결과 · 선택한 구성으로 완성</tspan>
   </text>
-  <text x="38" y="1495" class="">
+  <text x="38" y="1795" class="">
     <tspan x="38" dy="0">핵심과 관계를 한눈에</tspan>
     <tspan x="38" dy="26">예시와 한계를 함께</tspan>
     <tspan x="38" dy="26">출처는 확인 가능하게</tspan>
   </text>
-  <text x="38" y="1587" class="muted">
+  <text x="38" y="1887" class="muted">
     <tspan x="38" dy="0">복잡하면 나눠서, 작은 화면은 재배치.</tspan>
     <tspan x="38" dy="24">미리보기 없이도 독립 SVG 제공.</tspan>
     <tspan x="38" dy="24">텍스트 요청도 존중합니다.</tspan>
   </text>
-  <text x="22" y="1703" class="small muted">
+  <text x="22" y="2003" class="small muted">
     <tspan x="22" dy="0">공통 지침: SKILL.md</tspan>
     <tspan x="22" dy="24">저장소 지침은 필요할 때 별도로 읽습니다.</tspan>
   </text>

@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1230" width="960" height="1230" role="img" aria-labelledby="overview-title overview-desc">
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1490" width="960" height="1490" role="img" aria-labelledby="overview-title overview-desc">
   <title id="overview-title">explain_me — 궁금한 주제를 이해되는 설명으로</title>
-  <desc id="overview-desc">질문과 자료에서 출발해 독자와 목적을 파악하고 근거를 확인합니다. 개념은 관계도, 사건은 시간선, 비교는 공통 기준, 절차는 단계도, 문서는 주장과 근거, 시스템은 구조도로 설명합니다. 사실·해석·가정·불확실성을 구분하고 핵심 SVG와 필요한 세부 설명을 제공합니다.</desc>
+  <desc id="overview-desc">질문과 자료에서 독자·목적·근거를 파악하고 주제에 맞는 설명 구조를 만듭니다. 사실·해석·가정·불확실성을 구분합니다. 호스트 내부 미리보기와 HTML 갤러리 중에서 표시 방식을 고르고, 개수가 고정되지 않은 시안을 비교한 뒤 디자인을 선택합니다. 선택한 구성의 SVG와 필요한 세부 설명을 제공하고 선택을 저장해 이어서 진행합니다.</desc>
   <style>
 :root { color-scheme: light dark; --bg:#f8fafc; --surface:#ffffff; --ink:#162b3c; --muted:#465f72; --line:#b1c2cf; --accent:#096b70; --soft:#e0f2ef; --warm:#8e4b14; }
 @media (prefers-color-scheme:dark) { :root { --bg:#111f2a; --surface:#192d3b; --ink:#eef5fa; --muted:#beced9; --line:#607b8d; --accent:#73d9cf; --soft:#203f43; --warm:#f3c08e; } }
@@ -16,7 +16,7 @@ text { font-family:'Segoe UI','Malgun Gothic',Arial,sans-serif; fill:var(--ink);
       <path d="M0 0 L8 4 L0 8 Z" fill="var(--accent)" />
     </marker>
   </defs>
-  <rect width="960" height="1230" rx="20" fill="var(--bg)" />
+  <rect width="960" height="1490" rx="20" fill="var(--bg)" />
   <text x="48" y="62" class="brand">
     <tspan x="48" dy="0">explain_me</tspan>
   </text>
@@ -168,20 +168,55 @@ text { font-family:'Segoe UI','Malgun Gothic',Arial,sans-serif; fill:var(--ink);
   <text x="48" y="958" class="muted">
     <tspan x="48" dy="0">출처와 시점은 별도로 확인합니다. 사건의 순서가 곧 원인은 아닙니다.</tspan>
   </text>
-  <rect x="48" y="996" width="864" height="160" rx="12" fill="var(--soft)" stroke="none" />
-  <text x="70" y="1034" class="section">
-    <tspan x="70" dy="0">결과  ·  핵심 그림 + 필요한 세부 설명</tspan>
+  <g aria-label="표시 방식과 디자인 선택">
+    <text x="48" y="1013" class="section">
+      <tspan x="48">04  표시 방식도, 시안도 직접 선택합니다</tspan>
+    </text>
+    <rect x="48" y="1040" width="420" height="86" rx="12" class="node" />
+    <circle cx="78" cy="1070" r="8" fill="none" stroke="var(--accent)" stroke-width="2" />
+    <text x="100" y="1077" class="bold accent">
+      <tspan x="100">호스트 내부에서 보기</tspan>
+    </text>
+    <text x="72" y="1105" class="muted">
+      <tspan x="72">이미지·미리보기 + 대화에서 선택</tspan>
+    </text>
+    <rect x="492" y="1040" width="420" height="86" rx="12" class="node" />
+    <circle cx="522" cy="1070" r="8" fill="none" stroke="var(--accent)" stroke-width="2" />
+    <text x="544" y="1077" class="bold accent">
+      <tspan x="544">HTML 갤러리로 보기</tspan>
+    </text>
+    <text x="516" y="1105" class="muted">
+      <tspan x="516">비교 화면·확대 보기 + 선택</tspan>
+    </text>
+    <text x="48" y="1174" class="bold accent">
+      <tspan x="48">여러 시안 비교</tspan>
+    </text>
+    <line x1="263" y1="1167" x2="326" y2="1167" class="edge" marker-end="url(#arrow)" />
+    <text x="352" y="1174" class="bold accent">
+      <tspan x="352">디자인 선택</tspan>
+    </text>
+    <line x1="567" y1="1167" x2="630" y2="1167" class="edge" marker-end="url(#arrow)" />
+    <text x="656" y="1174" class="bold accent">
+      <tspan x="656">선택안 완성</tspan>
+    </text>
+    <text x="48" y="1214" class="muted">
+      <tspan x="48">시안 수는 유동적 · 선택 저장·재개 · 이미 정했다면 다시 묻지 않음</tspan>
+    </text>
+  </g>
+  <rect x="48" y="1256" width="864" height="160" rx="12" fill="var(--soft)" stroke="none" />
+  <text x="70" y="1294" class="section">
+    <tspan x="70" dy="0">결과  ·  선택한 구성의 SVG + 필요한 세부 설명</tspan>
   </text>
-  <text x="70" y="1070" class="">
+  <text x="70" y="1330" class="">
     <tspan x="70" dy="0">핵심과 관계를 한눈에  /  예시와 한계를 함께  /  출처는 확인 가능하게</tspan>
   </text>
-  <text x="70" y="1102" class="muted">
+  <text x="70" y="1362" class="muted">
     <tspan x="70" dy="0">복잡하면 나눠서, 작은 화면에서는 다시 배치해서 읽기 쉽게.</tspan>
   </text>
-  <text x="70" y="1133" class="muted">
+  <text x="70" y="1393" class="muted">
     <tspan x="70" dy="0">미리보기 없이도 독립 SVG 제공 · 텍스트 요청도 존중</tspan>
   </text>
-  <text x="48" y="1195" class="small muted">
+  <text x="48" y="1455" class="small muted">
     <tspan x="48" dy="0">공통 지침: SKILL.md   |   저장소 전문 지침: references/repository-analysis.md</tspan>
   </text>
 </svg>
