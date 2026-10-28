@@ -38,6 +38,19 @@ Use $explain-me to explain this topic.
 
 미리보기 기능이 없는 환경에서는 독립 SVG 파일로 전달합니다. 그림에는 외부 스크립트나 폰트 서비스가 필요하지 않습니다. 위 그림은 이 스킬의 동작 방식을 설명하는 정적 예제입니다.
 
+## 시안 비교와 선택
+
+시각 설명을 만들 때는 **표시 방식 선택 → 시안 비교 → 디자인 선택 → 완성** 순서로 진행합니다.
+
+- **표시 방식:** 호스트 내부 미리보기와 HTML 갤러리 중에서 사용자가 고릅니다. 한쪽을 기본값이나 자동 대체 방식으로 강제하지 않습니다.
+- **시안 수:** 약 6개는 참고값입니다. 요청과 의미 있는 디자인 차이에 따라 조절하며, 숫자를 채우려고 비슷한 시안을 늘리지 않습니다.
+- **디자인 선택:** 실제 시안을 본 뒤 내장 선택 도구나 대화에서 번호로 고릅니다. 이미 정한 방식이나 디자인은 다시 묻지 않습니다.
+- **요청 우선:** 텍스트 설명이나 특정 디자인을 요청했다면 그대로 따릅니다. 간단한 사실 답변에 시안 선택을 끼워 넣지 않습니다.
+
+[선택 하네스 안내](references/ui-selection.md)에 표시 방식과 실행 명령이 있습니다. 공통 상태는 SVG 시안, `manifest.json`, `selection.json`이며, `inspect`·`choose`·`status`는 HTML이나 브라우저 없이 동작합니다. 선택은 재개 시에도 유지되며, 시안이나 비교 내용이 바뀌면 다시 선택합니다.
+
+HTML을 선택하면 별도 설치가 필요 없는 비교 갤러리를 만듭니다. 선택 저장용 로컬 서버와 JSON 다운로드는 선택 사항입니다. 공통 명령에는 Python 3.9+가 필요하며 외부 패키지는 사용하지 않습니다. 실제 미리보기 지원은 각 호스트의 기능에 따릅니다.
+
 ## 설치와 호출
 
 저장소와 표시 이름은 **`explain_me`**입니다. Agent Skills의 이름 규칙에 맞춘 **호출 ID와 설치 폴더 이름은 `explain-me`**입니다. 기존 `svg-eli5-archify`를 설치했다면 해당 폴더를 `explain-me`로 이름을 바꾸고 업데이트하거나, 새 위치에 설치한 뒤 기존 항목을 비활성화해 중복을 피하세요. 직접 수정한 파일은 먼저 보존하세요.
@@ -85,7 +98,19 @@ Use explain-me to explain the sequence of events in this article.
 | [SKILL.md](SKILL.md) | 독자 파악, 설명 구조 선택, 근거 관리, 시각화, 검증의 공통 지침 |
 | [references/repository-analysis.md](references/repository-analysis.md) | 저장소·인프라를 설명할 때만 읽는 전문 지침 |
 | [agents/openai.yaml](agents/openai.yaml) | 선택 사항인 Codex 표시 이름·설명·기본 프롬프트 |
+| [references/ui-selection.md](references/ui-selection.md) | 표시 방식과 디자인을 선택하는 흐름 |
+| [scripts/ui_harness.py](scripts/ui_harness.py) | 시안 검사, 선택 저장·재개, HTML 갤러리 명령 |
+| [assets/ui-selection.html](assets/ui-selection.html) | 시안 수에 맞춰 표시되는 HTML 비교 화면 |
+| [tests/test_ui_harness.py](tests/test_ui_harness.py) | 하네스 동작 검증 |
 | [docs/overview.svg](docs/overview.svg) | README의 데스크톱 시각 설명 |
 | [docs/overview-mobile.svg](docs/overview-mobile.svg) | 작은 화면에서도 읽을 수 있는 별도 구성 |
 
 저장소 분석에서는 `declared`(설정), `intended`(의도), `recorded`(과거 기록), `observed`(이번 분석 중 실시간 관측)를 계속 구분합니다. 관측 시점을 모르면 모른다고 표시하고, 저장된 기록을 현재 실행 상태처럼 설명하지 않습니다.
+
+## 하네스 검증
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+생성한 시안과 선택 파일은 스킬 패키지 밖의 작업 출력 폴더에 둡니다.

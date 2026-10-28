@@ -1,4 +1,4 @@
 interface:
   display_name: "explain_me"
-  short_description: "Visual explanations of concepts, events, and systems"
-  default_prompt: "Use $explain-me to explain this topic with a clear visual, evidence, and examples suited to my background."
+  short_description: "Visual explanations with selectable UI drafts"
+  default_prompt: "Use $explain-me to explain this topic with evidence and examples suited to my background. For a visual explanation, let me choose in-host previews or an HTML gallery, then finish the design I select."

@@ -65,6 +65,47 @@ or linked references to an evidence index covering every label. Do not invent
 citations, observations, dates, or precision. For undated historical artifacts,
 label the observation time unknown; do not substitute a commit or file timestamp.
 
+## Review visual alternatives
+
+For substantive visual explanations, read
+[references/ui-selection.md](references/ui-selection.md) and use the selection
+harness after establishing the evidence. Respect requests for text, a supplied
+final design, or another format; simple factual answers do not need a UI review.
+
+- Let the user choose how to review the drafts: **inside the current host** or
+  **in an HTML gallery**. Use an available native single-choice question tool;
+  otherwise present the two choices in conversation and accept a numbered reply.
+  Honor a method already specified in the task without asking again. Neither
+  method is an automatic default or a fallback imposed on the user. If the chosen
+  method is unavailable, explain the limitation and let the user choose another.
+- Create rendered SVG UI drafts from the same central answer, evidence,
+  relationships, and uncertainty. Use around six as an initial reference when no
+  count is requested; adapt the count to the user's request, subject complexity,
+  and meaningful design directions. Do not pad the comparison to hit a quota.
+  Vary hierarchy, layout, typography, and visual treatment; changing colors alone
+  is insufficient. Keep the structure appropriate to the subject.
+- Show the alternatives with stable numbers, short names, differences, and
+  readable previews using the selected presentation method. For in-host review,
+  use its image output, file preview, or available visual surface. For HTML review,
+  build the portable gallery. Do not switch methods without the user's direction.
+- Use a native choice tool only when it is available in the active mode and can
+  represent the options. Otherwise accept a numbered conversational reply. Never
+  truncate the alternatives to fit a picker. Respect an explicit no-browser request.
+- Wait for the user's design choice before polishing or presenting a final SVG.
+  A recommendation, highlighted card, elapsed time, or tool-generated selection
+  is not the user's choice. Do not click selection controls on their behalf.
+- Keep SVG drafts, `manifest.json`, and `selection.json` as shared state across
+  presentation methods. `scripts/ui_harness.py inspect` validates and lists drafts
+  without building HTML. Record an explicit chat or native-tool choice with the
+  harness, or read the choice saved by its local browser UI. Resume only from a
+  valid selection for the current drafts and preserve the chosen layout.
+- If the user explicitly supplies a preferred design or asks to skip comparison,
+  honor that instruction. If they request new alternatives, update the comparison
+  and obtain a new choice.
+
+The previews are an intermediate deliverable. While awaiting a choice, show the
+previews and wait; the final explanation is delivered after the design is chosen.
+
 ## Explain without distorting
 
 - Use an analogy only when it helps. Preserve the important relationships and
@@ -103,13 +144,15 @@ do not use one unlabelled connector for time, causality, and information flow.
 
 ## Adapt to the host
 
-Use an available visualization, artifact, canvas, or preview surface after
-reading its relevant instructions. Preserve a self-contained SVG for portability.
+Use an available surface compatible with the user's selected presentation
+method after reading its relevant instructions. Check actual capability
+availability rather than only the host name: a model reading an image does not
+guarantee the user can see it. Preserve a self-contained SVG for portability.
 Add local interaction only when it helps investigate a relationship or scenario.
 
 If there is no suitable native surface, write a standalone `.svg` in an authorized
-workspace and return its link. A small HTML preview may help inspection, but keep
-the explanation in SVG. Do not make completion depend on a particular vendor's
+workspace and return its link. If the chosen method is unavailable, explain the limitation and let the user
+choose another method or inspect the files. Keep the explanation in SVG. Do not make completion depend on a particular vendor's
 tool, external script, font service, or rendering service.
 
 For a README, embed repository-relative static SVG assets and keep installation
